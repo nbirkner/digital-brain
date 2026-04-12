@@ -155,10 +155,9 @@ for (const section of sortedSections) {
 // Static nav pages (Next.js route pages, not markdown files, that should appear in search).
 // These are important hub/section pages that have no markdown source.
 const NAV_PAGES = [
-  { title: "Astrology", url: "/personal/growth/spirituality/astrology", icon: "🔮", section: "life", snippet: "Birth chart readings, transits, and astrological insights" },
-  { title: "Spirituality", url: "/personal/growth/spirituality", icon: "✨", section: "life", snippet: "Spiritual practice, astrology, and growth resources" },
-  { title: "Health", url: "/niki/health", icon: "💚", section: "niki", snippet: "Care team, medical history, and health tracking" },
-  { title: "Mental Health", url: "/niki/health/mental-health", icon: "🧠", section: "niki", snippet: "Depression, anxiety, TMS, therapy, and alternative treatments" },
+  { title: "Health", url: "/self/health", icon: "💚", section: "self", snippet: "Health tracking, medications, and wellness notes" },
+  { title: "Routine", url: "/self/routine", icon: "🧘", section: "self", snippet: "Morning routine and daily habits" },
+  { title: "Hobbies", url: "/self/hobbies", icon: "🎨", section: "self", snippet: "Hobbies, interests, and creative projects" },
   { title: "Tasks", url: "/tasks", icon: "✅", section: "work", snippet: "Task list, to-dos, and priorities" },
 ]
 
