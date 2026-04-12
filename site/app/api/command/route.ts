@@ -64,7 +64,7 @@ interface ClassifyResult {
   /** For published: repo-relative path to the markdown file */
   contentPath?: string
   tasks?: string[]
-  taskProject?: "work" | "personal" | null
+  taskProject?: "work" | "personal" | "shared" | null
   taskLabel?: string
   taskPriority?: "p1" | "p2" | "p3"
   taskName?: string
@@ -108,7 +108,7 @@ Respond ONLY with valid JSON, no markdown fences:
   "externalPageType": "dedicated" | "published" | null,
   "contentPath": string | null,
   "tasks": string[] | null,
-  "taskProject": "work" | "personal" | null,
+  "taskProject": "work" | "personal" | "shared" | null,
   "taskLabel": string | null,
   "taskPriority": "p1" | "p2" | "p3" | null,
   "taskName": string | null,
@@ -247,13 +247,14 @@ async function handleExternalPage(
 const TODOIST_PROJECT_IDS = {
   work: process.env.TODOIST_WORK_PROJECT_ID ?? "",
   personal: process.env.TODOIST_PERSONAL_PROJECT_ID ?? "",
+  shared: process.env.TODOIST_SHARED_PROJECT_ID ?? "",
 }
 
 const PRIORITY_MAP: Record<string, number> = { p1: 4, p2: 3, p3: 2 }
 
 async function handleCreateTasks(
   tasks: string[],
-  project?: "work" | "personal" | null,
+  project?: "work" | "personal" | "shared" | null,
   label?: string,
   priority?: "p1" | "p2" | "p3"
 ): Promise<{ success: boolean; message: string; count: number }> {

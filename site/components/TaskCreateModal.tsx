@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 
 const WORK_PROJECT_ID = process.env.NEXT_PUBLIC_TODOIST_WORK_PROJECT_ID ?? ""
 const PERSONAL_PROJECT_ID = process.env.NEXT_PUBLIC_TODOIST_PERSONAL_PROJECT_ID ?? ""
+const SHARED_PROJECT_ID = process.env.NEXT_PUBLIC_TODOIST_SHARED_PROJECT_ID ?? ""
 
 export interface TaskCreateModalProps {
   defaultProjectId: string
@@ -201,6 +202,7 @@ export function TaskCreateModal({ defaultProjectId, onCreated, onCancel, waiting
           {[
             { id: WORK_PROJECT_ID, label: "Work", cls: "text-blue-400 border-blue-500/20 bg-blue-500/5" },
             { id: PERSONAL_PROJECT_ID, label: "Personal", cls: "text-emerald-400 border-emerald-500/20 bg-emerald-500/5" },
+            ...(SHARED_PROJECT_ID ? [{ id: SHARED_PROJECT_ID, label: "🤝 Shared", cls: "text-amber-400 border-amber-500/20 bg-amber-500/5" }] : []),
             ...(waitingProjectId ? [{ id: waitingProjectId, label: "Waiting", cls: "text-purple-400 border-purple-500/20 bg-purple-500/5" }] : []),
           ].map(({ id, label, cls }) => (
             <button

@@ -12,8 +12,9 @@ To update: "update command file with X"
 Net-new tasks only. Infer: task name, project, label, priority, due date.
 
 **Project:**
-- Work (meetings, PRDs, engineering, stakeholders) → Work project ID (set TODOIST_WORK_PROJECT_ID env var)
-- Personal (health, finances, errands, social, travel, family) → Personal project ID (set TODOIST_PERSONAL_PROJECT_ID env var)
+- Work (meetings, PRDs, engineering, stakeholders) → `TODOIST_WORK_PROJECT_ID`
+- Personal (health, finances, errands, social, travel, family) → `TODOIST_PERSONAL_PROJECT_ID`
+- Shared (tasks involving another person, household, joint decisions) → `TODOIST_SHARED_PROJECT_ID`
 - Unclear → inbox
 
 **Label — work (pick closest match):**

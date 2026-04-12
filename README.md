@@ -58,6 +58,7 @@ Optional (enables Tasks and Command tab task creation):
 - `TODOIST_PERSONAL_PROJECT_ID` — Todoist project ID for personal tasks
 - `NEXT_PUBLIC_TODOIST_WORK_PROJECT_ID` — same as above (for client components)
 - `NEXT_PUBLIC_TODOIST_PERSONAL_PROJECT_ID` — same as above
+- `TODOIST_SHARED_PROJECT_ID` + `NEXT_PUBLIC_TODOIST_SHARED_PROJECT_ID` — for a shared project with a partner or collaborator. Create a project in Todoist, invite their email, and paste the ID here.
 
 Optional (enables "Open in Cursor" link in Notes):
 - `NEXT_PUBLIC_REPO_ROOT` — absolute path to this repo on your machine (e.g., `/Users/yourname/Code/digital-brain`)
@@ -158,6 +159,17 @@ Skills are slash commands that work in Claude Code sessions. After opening the r
 ```
 
 Full list in `.claude/skills/`. Each skill has a `SKILL.md` with instructions.
+
+## Shared tasks (optional)
+
+If you want to share tasks with a partner, housemate, or collaborator:
+
+1. Create a new project in Todoist (e.g., "Shared" or "Household")
+2. Invite their email from the project settings
+3. Set `TODOIST_SHARED_PROJECT_ID` and `NEXT_PUBLIC_TODOIST_SHARED_PROJECT_ID` in your `.env.local`
+4. Tasks you create that involve the shared context will route to that project automatically
+
+Both of you will see the tasks in your Todoist apps. Either person can complete them.
 
 ## Staying in sync with updates
 
