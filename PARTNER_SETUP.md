@@ -313,28 +313,32 @@ Your completed `.env.local` should have no `your-...-here` placeholders left. Ev
 
 ---
 
-## Part 6: Add the shared content submodule
+## Part 6: Connect to shared content
 
-This connects your repo to the shared content your partner set up. You need the URL of the shared repo — your partner can give it to you (it's the GitHub URL of the private shared repo they invited you to).
+Shared content syncs to your fork automatically. Your partner runs a GitHub Action that pushes files from the shared repo directly into the `shared/` folder of your fork whenever either of you pushes a change.
 
-```bash
-# Run from the digital-brain root folder (not site/):
-cd ~/digital-brain   # or wherever you cloned it
-git submodule add https://github.com/PARTNERS_USERNAME/SHARED_REPO_NAME.git shared
-git submodule update --init
-```
+To activate this, you need to do two things:
 
-Replace `PARTNERS_USERNAME` with your partner's GitHub username and `SHARED_REPO_NAME` with the name of the shared repo.
+**Step 1 — Create a fine-grained PAT for your fork.**
 
-Verify it worked:
+Go to [github.com/settings/tokens](https://github.com/settings/tokens) → **Fine-grained tokens** → **Generate new token**:
+- Name it something like `shared-content-sync`
+- Under **Repository access**: choose **Only select repositories** → pick your digital-brain fork
+- Under **Permissions** → **Contents** → set to **Read and write**
+- Click **Generate token** → copy it immediately (you only see it once)
+
+**Step 2 — Send your partner your PAT and GitHub username.**
+
+They'll add your PAT as a secret (`JUAN_FORK_PAT`) and your repo as a variable (`JUAN_FORK_REPO`, in `owner/repo` format) in the shared repo's GitHub settings. Once they do, every push to the shared repo will auto-sync to your `shared/` folder.
+
+That's it. You don't need to clone the shared repo or configure anything else. To contribute shared content, push directly to the shared repo (you already have collaborator access from Part 0).
+
+Verify the sync is working:
 ```bash
 ls shared/
 ```
 
-You should see the contents of the shared repo — folders like `housing/`, `finances/`, `travel/`, or whatever your partner has set up there. If the folder is empty, run:
-```bash
-git submodule update --init --recursive
-```
+You should see folders like `housing/`, `finances/`, `travel/`, or whatever has been set up. If the folder is empty, ask your partner to confirm the secret and variable are configured, then push a small change to the shared repo to trigger a sync.
 
 ---
 
@@ -391,23 +395,11 @@ Once all variables are entered, click **Deploy**.
 
 The first build takes 3-5 minutes. Watch the build log — if it fails, the Troubleshooting section covers the most common errors.
 
-### 8.3 Give Vercel access to the shared repo
+### 8.3 Verify Vercel has access to your fork
 
-Because the shared repo is private, Vercel needs permission to clone it during builds.
+Shared content is synced directly into `shared/` as regular tracked files in your fork. Vercel builds from your fork only — no access to the private shared repo is needed.
 
-**In most cases, this works automatically** — Vercel's GitHub integration has access to all repos your GitHub account can access, including repos you were invited to as a collaborator.
-
-**If the build fails with an error like "fatal: repository not found" or "Permission denied":** Create a GitHub personal access token with submodule read access:
-
-1. Go to [github.com/settings/tokens](https://github.com/settings/tokens) → **Fine-grained tokens** → **Generate new token**
-2. Name: `vercel-submodule`
-3. Under **Repository access**: choose **Only select repositories** → add both your digital-brain fork AND the shared repo
-4. Under **Permissions** → **Contents** → set to **Read-only**
-5. Click **Generate token** → copy it
-6. In Vercel: go to your project → **Settings** → **Environment Variables** → add:
-   - Name: `GITHUB_TOKEN`
-   - Value: the token you just created
-7. Redeploy: **Deployments** → click the three-dot menu on the latest deploy → **Redeploy**
+If the build fails with a permissions error, confirm that the Vercel GitHub integration has access to your fork: go to [github.com/settings/installations](https://github.com/settings/installations) → click **Configure** next to Vercel → make sure your digital-brain fork is listed under repository access.
 
 ### 8.4 Update Google OAuth redirect URI
 
@@ -530,38 +522,23 @@ To delete the demo files: open the `work/`, `personal/`, and `shared/` folders, 
 
 ## Ongoing: keeping shared content in sync
 
-### Pushing your changes to the shared repo
+### Contributing to shared content
 
-When you edit files inside `shared/`:
+The shared content lives in the private shared repo (github.com/nbirkner/niki-juan-shared). You have direct push access. To add or edit shared content:
 
 ```bash
-# First, commit and push the changes in the shared repo itself:
-cd shared
+cd ~/niki-juan-shared   # or wherever you cloned the shared repo
+# make your edits
 git add .
 git commit -m "update: housing info"
 git push
-
-# Then, update your main repo to point to the new shared commit:
-cd ..
-git add shared
-git commit -m "chore: sync shared"
-git push
 ```
 
-Or do both in one command from the main repo root:
-```bash
-git push --recurse-submodules=on-demand
-```
+The GitHub Action in the shared repo triggers automatically on every push and syncs the files to both your fork and your partner's repo. Changes appear in your site after Vercel picks up the commit (usually under a minute).
 
 ### Pulling your partner's changes
 
-When your partner has updated shared files:
-```bash
-git submodule update --remote shared
-git add shared
-git commit -m "chore: sync shared"
-git push
-```
+You don't need to do anything manually. When your partner pushes to the shared repo, the sync action pushes a commit to your fork, and Vercel redeploys automatically.
 
 ### Pulling upstream improvements to digital-brain
 
@@ -591,9 +568,9 @@ After changing `NEXTAUTH_URL` in Vercel, redeploy for it to take effect.
 
 ### Build fails with "fatal: repository not found" or "Permission denied"
 
-**Cause:** Vercel can't access the private shared repo.
+**Cause:** Vercel doesn't have access to your fork.
 
-Fix: Create a `GITHUB_TOKEN` with read access to the shared repo and add it to Vercel environment variables. See Part 8.3 for exact steps.
+Fix: Go to [github.com/settings/installations](https://github.com/settings/installations) → click **Configure** next to Vercel → add your digital-brain fork under repository access. Redeploy after updating.
 
 ---
 
@@ -622,18 +599,17 @@ Also verify that the project IDs in your `.env.local` (or Vercel env vars) match
 
 ### Shared content section is empty
 
-**Cause:** The submodule wasn't initialized properly.
+**Cause:** The sync action hasn't run yet, or the GitHub secrets/variables aren't configured.
 
-Fix:
-```bash
-git submodule update --init --recursive
-```
+Check these in order:
 
-If the `shared/` folder is empty after that, confirm you were added as a collaborator on the shared repo and accepted the invite, then try:
-```bash
-git submodule sync
-git submodule update --init
-```
+1. **Confirm the sync was set up.** Ask your partner to verify that `JUAN_FORK_PAT` (secret) and `JUAN_FORK_REPO` (variable) are set in the shared repo's GitHub settings (Settings → Secrets and Variables → Actions).
+
+2. **Trigger a sync manually.** Ask your partner to push any small change to the shared repo. The Action should run and push a commit to your fork.
+
+3. **Check the Action logs.** Go to github.com/nbirkner/niki-juan-shared → Actions tab → find the latest "Sync shared content" run → look at the "Sync to Juan's repo" job for errors.
+
+4. **PAT permissions.** If the job fails with a permissions error, regenerate your PAT (see Part 6) and ask your partner to update the secret.
 
 ---
 
