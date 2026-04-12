@@ -1,0 +1,258 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Dark theme (default) */
+:root {
+  --notion-bg: #18181a;
+  --notion-surface: #222224;
+  --notion-surface-elevated: #2a2a2c;
+  --notion-hover: #2c2c2e;
+  --notion-border: #313133;
+  --notion-text: #e6e6e6;
+  --notion-muted: #9b9b9b;
+  --notion-accent: #5865f2;
+  --notion-accent-hover: #4752c4;
+  --notion-success: #2d6a4f;
+  --notion-warning: #7c4a00;
+  --notion-surface-hover: #2a2a2a;
+  --notion-border-subtle: #2a2a2a;
+  --notion-text-secondary: #c0c0c0;
+  --notion-accent-subtle: rgba(88, 101, 242, 0.12);
+  --notion-glow: rgba(88, 101, 242, 0.15);
+}
+
+/* Light theme */
+.light {
+  --notion-bg: #ffffff;
+  --notion-surface: #f7f6f3;
+  --notion-surface-elevated: #eeede9;
+  --notion-hover: #efeeeb;
+  --notion-border: #e9e9e7;
+  --notion-text: #37352f;
+  --notion-muted: #787774;
+  --notion-accent: #2383e2;
+  --notion-accent-hover: #1a6fcb;
+  --notion-success: #2d6a4f;
+  --notion-warning: #7c4a00;
+  --notion-surface-hover: #f0efec;
+  --notion-border-subtle: #ededeb;
+  --notion-text-secondary: #5a5a56;
+  --notion-accent-subtle: rgba(35, 131, 226, 0.08);
+  --notion-glow: rgba(35, 131, 226, 0.12);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: var(--notion-bg);
+  color: var(--notion-text);
+  font-family: var(--font-sans), ui-sans-serif, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Selection */
+::selection {
+  background-color: var(--notion-accent);
+  color: #ffffff;
+}
+
+/* QuickAdd FAB — sits above the bottom nav on mobile, near screen edge on desktop */
+.fab-position {
+  bottom: calc(56px + env(safe-area-inset-bottom) + 1rem);
+}
+@media (min-width: 1024px) {
+  .fab-position {
+    bottom: 1.5rem;
+  }
+}
+
+/* Mobile bottom padding — accounts for bottom nav + iOS home indicator */
+.main-pb {
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
+}
+@media (min-width: 1024px) {
+  .main-pb {
+    padding-bottom: 0;
+  }
+}
+
+/* Hide scrollbar utility (for horizontal scroll tabs) */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--notion-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--notion-border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--notion-muted);
+}
+
+/* Focus styles — buttons and interactive elements only, not text inputs */
+:focus-visible:not(input):not(textarea):not([contenteditable]) {
+  outline: 2px solid var(--notion-accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Page enter animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main.page-enter {
+  animation: fadeIn 0.2s ease-out both;
+}
+
+/* Smooth transitions — exclude transform to prevent containing block issues */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color, opacity, box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 120ms;
+}
+
+/* Remove transition from layout elements to avoid flicker on load */
+.no-transition * {
+  transition: none !important;
+}
+
+/* Date input styling removed — using custom DatePicker component */
+
+/* Typography refinements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 1.75rem; line-height: 1.2; }
+h2 { font-size: 1.25rem; line-height: 1.3; }
+h3 { font-size: 1rem; line-height: 1.4; }
+
+/* Better code rendering */
+code, pre, kbd {
+  font-family: ui-monospace, "SF Mono", "Cascadia Code", monospace;
+  font-size: 0.875em;
+}
+
+/* Button base */
+button {
+  cursor: pointer;
+}
+
+/* Input and textarea base */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  outline: none;
+}
+
+input:not([type="checkbox"]):not([type="radio"]):focus,
+textarea:focus {
+  box-shadow: none;
+}
+
+/* Card/surface hover effect */
+.card-hover {
+  transition: background-color 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+.card-hover:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+  border-color: var(--notion-border);
+}
+
+.light .card-hover:hover {
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Grain texture overlay — adds depth to flat dark backgrounds */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+}
+
+/* Reduce grain in light mode — it's less needed on white */
+.light body::before {
+  opacity: 0.008;
+}
+
+/* Stagger reveal for list items */
+@keyframes itemReveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-item {
+  animation: itemReveal 0.25s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+.stagger-item:nth-child(1) { animation-delay: 0ms; }
+.stagger-item:nth-child(2) { animation-delay: 40ms; }
+.stagger-item:nth-child(3) { animation-delay: 80ms; }
+.stagger-item:nth-child(4) { animation-delay: 120ms; }
+.stagger-item:nth-child(5) { animation-delay: 160ms; }
+.stagger-item:nth-child(6) { animation-delay: 200ms; }
+.stagger-item:nth-child(7) { animation-delay: 240ms; }
+.stagger-item:nth-child(8) { animation-delay: 280ms; }
+
+/* Fade in for single elements */
+@keyframes softFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.fade-in {
+  animation: softFadeIn 0.3s ease both;
+}
+
+/* Refined link hover underline for prose content */
+.prose a {
+  text-decoration: none;
+  background-image: linear-gradient(var(--notion-accent), var(--notion-accent));
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size 0.2s ease;
+}
+.prose a:hover {
+  background-size: 100% 1px;
+}

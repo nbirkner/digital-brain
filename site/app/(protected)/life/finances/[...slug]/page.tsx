@@ -1,0 +1,36 @@
+import { getMarkdownFileWithPending, getMarkdownFiles } from "@/lib/content"
+import PageHeader from "@/components/PageHeader"
+import PagePathStatic from "@/components/PagePathStatic"
+import MarkdownRenderer from "@/components/MarkdownRenderer"
+import { notFound } from "next/navigation"
+
+
+export const dynamicParams = false
+
+export async function generateStaticParams() {
+  const files = getMarkdownFiles("personal/site/finances")
+  return files.map(f => ({ slug: f.slug.split("/") }))
+}
+
+interface Props {
+  params: { slug: string[] }
+}
+
+export default async function FinancesDetailPage({ params }: Props) {
+  const slugPath = params.slug.join("/").replace(/\.md$/, "")
+  const file = await getMarkdownFileWithPending("personal/site/finances/" + slugPath + ".md")
+  if (!file) notFound()
+  return (
+    <div className="max-w-2xl mx-auto">
+      <PagePathStatic path={"life/finances/" + slugPath} />
+      <PageHeader
+        icon="💰"
+        title={file.displayTitle}
+        description={file.frontmatter.date || slugPath}
+      />
+      <div className="mt-6 bg-notion-surface border border-notion-border rounded-xl p-6">
+        <MarkdownRenderer content={file.content} />
+      </div>
+    </div>
+  )
+}

@@ -1,0 +1,8 @@
+.next/
+node_modules/
+.env.local
+.env.vercel
+.vercel
+.content-cache/
+public/search-index.json
+data/search-index.json

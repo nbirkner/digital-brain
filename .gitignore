@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js
+site/.next/
+site/out/
+
+# Content cache (generated at build time)
+site/.content-cache/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# OS
+.DS_Store
+
+# Build outputs
+*.tsbuildinfo
+
+# Editor
+.cursor/
