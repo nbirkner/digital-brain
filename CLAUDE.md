@@ -169,6 +169,8 @@ When you use these phrases, scale tool use and web searches accordingly.
 
 When you recognize a pattern, invoke the skill immediately or say "This looks like a [skill] situation — want me to run it?"
 
+**Setup trigger:** "help me get setup", "set up my site", "let's get started", or `/setup` → invoke the `/setup` skill immediately.
+
 **Work triggers:** meeting transcripts → `/meeting-notes`, day not planned → `/daily-plan`, session winding down → `/log`, PRD review request → `/review-panel`, competitor mention → `/competitor-analysis`, overwhelmed task list → `/prioritize`.
 
 **Personal triggers:** health question → consider health context files, financial decision → financial context files.
