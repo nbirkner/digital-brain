@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation"
 import { getMarkdownFileWithPending, getMarkdownFilesWithPending, getMarkdownFiles } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 import NoteDetailClient from "./NoteDetailClient"
 
 

@@ -1,9 +1,9 @@
 "use client"
 
 import { useState } from "react"
-import InlineBodyEditor from "@/components/InlineBodyEditor"
+import InlineBodyEditor from "@/components/features/editors/InlineBodyEditor"
 import Link from "next/link"
-import Breadcrumb from "@/components/Breadcrumb"
+import Breadcrumb from "@/components/ui/Breadcrumb"
 
 interface Props {
   slugPath: string

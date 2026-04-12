@@ -1,7 +1,7 @@
 import { getMarkdownFileWithPending, getMarkdownFiles } from "@/lib/content"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import MarkdownRenderer from "@/components/MarkdownRenderer"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
 import { notFound } from "next/navigation"
 
 

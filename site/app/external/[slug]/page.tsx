@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { getPageBySlug, getPublishedPrivatePages } from "@/data/external-published"
 import { getMarkdownFile } from "@/lib/content"
-import MarkdownRenderer from "@/components/MarkdownRenderer"
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
 
 // Only statically generate slugs for published private pages.
 // Dedicated pages (costa-rica, tms) are their own static directories — no conflict.

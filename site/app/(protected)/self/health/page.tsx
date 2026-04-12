@@ -1,8 +1,8 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getMarkdownFileWithPending } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
-import LabelPageContent from "@/components/LabelPageContent"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 // Top-level sections sourced directly from the Notion page tree
 const HEALTH_SECTIONS = [

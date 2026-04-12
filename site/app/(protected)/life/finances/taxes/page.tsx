@@ -1,5 +1,5 @@
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 // Data sourced from Notion Taxes page
 // Page ID: 2a82f4d2-943e-81e6-ab65-eab2ae1ce12c

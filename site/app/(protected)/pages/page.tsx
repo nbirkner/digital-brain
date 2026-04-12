@@ -1,5 +1,5 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getMarkdownFilesIndex } from "@/lib/content"
 
 const AREA_CONFIG: Record<string, { label: string; icon: string; routePrefix: string; dirPrefix: string }> = {

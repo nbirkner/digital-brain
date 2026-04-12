@@ -1,7 +1,7 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getMarkdownFilesWithPending } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 export default async function MeetingsPage() {
   const allFiles = await getMarkdownFilesWithPending("work/notes")

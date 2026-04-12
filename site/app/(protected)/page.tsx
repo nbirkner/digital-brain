@@ -1,9 +1,9 @@
 import Link from "next/link"
 import { Suspense } from "react"
 import { getCachedTasks, TODOIST_APP_URL, type TodoistTask } from "@/lib/todoist"
-import StatBadge from "@/components/StatBadge"
-import TasksPreview from "@/components/TasksPreview"
-import { RecentContentServer } from "@/components/RecentContent"
+import StatBadge from "@/components/ui/StatBadge"
+import TasksPreview from "@/components/features/tasks/TasksPreview"
+import { RecentContentServer } from "@/components/ui/RecentContent"
 
 export const dynamic = "force-dynamic"
 

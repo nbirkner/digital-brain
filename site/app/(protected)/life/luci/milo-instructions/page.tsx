@@ -1,5 +1,5 @@
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 export default function MiloInstructionsPage() {
   return (

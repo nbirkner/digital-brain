@@ -1,8 +1,8 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 import { getMarkdownFile, getMarkdownFilesWithPending } from "@/lib/content"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 // Data sourced from shared/finances/accounts.md and overview.md
 // Edit those files to update accounts, tools, team, and tax tips.

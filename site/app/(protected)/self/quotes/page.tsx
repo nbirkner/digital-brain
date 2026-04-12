@@ -1,8 +1,8 @@
 import { getMarkdownFilesWithPending } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
-import PageHeader from "@/components/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
 import Link from "next/link"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 
 export default async function QuotesPage() {

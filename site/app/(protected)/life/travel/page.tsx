@@ -1,8 +1,8 @@
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import TravelClient from "@/components/TravelClient"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import TravelClient from "@/components/features/travel/TravelClient"
 import { getMarkdownFilesWithPending } from "@/lib/content"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 export default async function TravelPage() {
   const tripFiles = await getMarkdownFilesWithPending("shared/travel/trips")

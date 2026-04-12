@@ -1,7 +1,7 @@
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import Link from "next/link"
-import PagePathStatic from "@/components/PagePathStatic"
-import LabelPageContent from "@/components/LabelPageContent"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 export default function LuciPage() {
   return (

@@ -1,8 +1,8 @@
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import MarkdownRenderer from "@/components/MarkdownRenderer"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
 import { getMarkdownFileWithPending } from "@/lib/content"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 const ROUTINE_SECTIONS = [
   {

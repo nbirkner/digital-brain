@@ -2,12 +2,12 @@
 
 import { useState, useRef, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import Sidebar from "@/components/Sidebar"
-import Header from "@/components/Header"
-import NavigationProgress from "@/components/NavigationProgress"
-import GlobalSearch from "@/components/GlobalSearch"
-import AutoRefresh from "@/components/AutoRefresh"
-import TodoistQuickAdd from "@/components/TodoistQuickAdd"
+import Sidebar from "@/components/layout/Sidebar"
+import Header from "@/components/layout/Header"
+import NavigationProgress from "@/components/ui/NavigationProgress"
+import GlobalSearch from "@/components/features/search/GlobalSearch"
+import AutoRefresh from "@/components/ui/AutoRefresh"
+import TodoistQuickAdd from "@/components/features/tasks/TodoistQuickAdd"
 import { getPublishedPageByInternalPath } from "@/data/external-published"
 import { useGlobalKeyNav } from "@/hooks/useGlobalKeyNav"
 

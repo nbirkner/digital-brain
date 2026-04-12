@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next"
 import { Plus_Jakarta_Sans, DM_Serif_Display } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/ThemeProvider"
+import { ThemeProvider } from "@/components/layout/ThemeProvider"
 
 const jakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],

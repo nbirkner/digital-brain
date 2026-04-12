@@ -1,10 +1,10 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getMarkdownFilesWithPending, getMarkdownFile } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
-import EmptyState from "@/components/EmptyState"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import EmptyState from "@/components/ui/EmptyState"
 import ResumePreview from "./ResumePreview"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 export default async function CareerPage() {
   const allFiles = (await getMarkdownFilesWithPending("personal/docs/career")).filter(

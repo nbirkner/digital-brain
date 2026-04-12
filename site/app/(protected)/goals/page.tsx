@@ -1,10 +1,10 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getMarkdownFilesWithPending, getMarkdownFileWithPending } from "@/lib/content"
 
-import PagePathStatic from "@/components/PagePathStatic"
-import EmptyState from "@/components/EmptyState"
-import LabelPageContent from "@/components/LabelPageContent"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import EmptyState from "@/components/ui/EmptyState"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 const LIFE_PRINCIPLES = [
   {

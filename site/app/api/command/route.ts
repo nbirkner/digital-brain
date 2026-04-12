@@ -154,7 +154,7 @@ Respond ONLY with valid JSON, no markdown fences:
 
 /** Generate a minimal dedicated external page component */
 function generateExternalPageComponent(slug: string, label: string, icon: string): string {
-  return `import PageHeader from "@/components/PageHeader"
+  return `import PageHeader from "@/components/layout/PageHeader"
 
 export default function ${label.replace(/\s+/g, "")}ExternalPage() {
   return (

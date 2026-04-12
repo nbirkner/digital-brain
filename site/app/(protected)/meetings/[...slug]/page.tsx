@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { getMarkdownFileWithPending, getMarkdownFiles } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
-import ContentDetailPage from "@/components/ContentDetailPage"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import ContentDetailPage from "@/components/features/content/ContentDetailPage"
 
 
 export const dynamicParams = false

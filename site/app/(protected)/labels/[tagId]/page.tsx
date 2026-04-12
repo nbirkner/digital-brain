@@ -1,6 +1,6 @@
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getTagDef } from "@/lib/tag-taxonomy"
-import TagPill from "@/components/TagPill"
+import TagPill from "@/components/ui/TagPill"
 import { getMarkdownFiles } from "@/lib/content"
 import type { ContentFile } from "@/lib/content"
 import { getAllTasks } from "@/lib/todoist"

@@ -1,7 +1,7 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import LabelPageContent from "@/components/LabelPageContent"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 const SECTIONS = [
   { href: "/goals", icon: "🎯", label: "Goals", description: "Quarterly intentions and life planning" },

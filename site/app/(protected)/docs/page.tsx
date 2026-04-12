@@ -1,7 +1,7 @@
 import { Suspense } from "react"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import DocsClient from "@/components/DocsClient"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import DocsClient from "@/components/features/content/DocsClient"
 import { getAllDocsMeta } from "@/lib/docs"
 
 export default async function DocsPage() {

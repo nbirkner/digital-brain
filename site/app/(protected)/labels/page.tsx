@@ -1,8 +1,8 @@
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { TAGS_BY_CATEGORY, TagCategory } from "@/lib/tag-taxonomy"
 import { getAllDocsMeta } from "@/lib/docs"
 import { getMarkdownFiles } from "@/lib/content"
-import TagPill from "@/components/TagPill"
+import TagPill from "@/components/ui/TagPill"
 
 const CATEGORY_LABELS: Record<TagCategory, string> = {
   area: "Area",

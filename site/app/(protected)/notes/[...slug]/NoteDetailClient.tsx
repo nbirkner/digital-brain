@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import InlineBodyEditor from "@/components/InlineBodyEditor"
-import InlineFrontmatterEditor from "@/components/InlineFrontmatterEditor"
+import InlineBodyEditor from "@/components/features/editors/InlineBodyEditor"
+import InlineFrontmatterEditor from "@/components/features/editors/InlineFrontmatterEditor"
 import Link from "next/link"
 import { getTagDef } from "@/lib/tag-taxonomy"
 

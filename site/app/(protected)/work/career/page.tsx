@@ -1,8 +1,8 @@
-import PageHeader from "@/components/PageHeader"
+import PageHeader from "@/components/layout/PageHeader"
 import { getMarkdownFilesWithPending, getMarkdownFileWithPending } from "@/lib/content"
-import MarkdownRenderer from "@/components/MarkdownRenderer"
-import PagePathStatic from "@/components/PagePathStatic"
-import LabelPageContent from "@/components/LabelPageContent"
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 // Career file slugs that map to specific display names
 const CAREER_FILE_LABELS: Record<string, string> = {

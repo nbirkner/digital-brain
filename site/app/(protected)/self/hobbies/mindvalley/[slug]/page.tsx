@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import PagePathStatic from "@/components/PagePathStatic"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 const colorMap: Record<string, string> = {
   blue: "bg-blue-500/10 border-blue-500/20 text-blue-700",

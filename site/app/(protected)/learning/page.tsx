@@ -1,8 +1,8 @@
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import LearningClient from "@/components/LearningClient"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import LearningClient from "@/components/features/learning/LearningClient"
 import { fetchBooks, fetchHighlights } from "@/lib/readwise"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 export const revalidate = 60 // ISR: revalidate every 60 seconds
 

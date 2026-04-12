@@ -1,10 +1,10 @@
 "use client"
 
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import SiteTable from "@/components/SiteTable"
-import type { SiteTableColumn } from "@/components/SiteTable"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import SiteTable from "@/components/data/SiteTable"
+import type { SiteTableColumn } from "@/components/data/SiteTable"
 
 const big3 = [
   {

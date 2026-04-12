@@ -1,8 +1,8 @@
 import { getMarkdownFilesWithPending } from "@/lib/content"
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import EmptyState from "@/components/EmptyState"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import EmptyState from "@/components/ui/EmptyState"
 
 
 export default async function WorkCatchupPage() {

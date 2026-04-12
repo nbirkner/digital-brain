@@ -1,7 +1,7 @@
 "use client"
 
-import SiteTable from "@/components/SiteTable"
-import type { SiteTableColumn } from "@/components/SiteTable"
+import SiteTable from "@/components/data/SiteTable"
+import type { SiteTableColumn } from "@/components/data/SiteTable"
 
 interface ChakraRow {
   emoji: string

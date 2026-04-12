@@ -1,9 +1,9 @@
 import { Suspense } from "react"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import HomeTasksWidget from "@/components/HomeTasksWidget"
-import { RecentContentServer } from "@/components/RecentContent"
-import SectionNavGrid, { type NavSection } from "@/components/SectionNavGrid"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import HomeTasksWidget from "@/components/features/tasks/HomeTasksWidget"
+import { RecentContentServer } from "@/components/ui/RecentContent"
+import SectionNavGrid, { type NavSection } from "@/components/ui/SectionNavGrid"
 
 export const dynamic = "force-dynamic"
 

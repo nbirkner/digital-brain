@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation"
 import { getMarkdownFile } from "@/lib/content"
 import { getAllDocsIncludingHidden, getSubDocs } from "@/lib/docs"
-import ContentDetailPage from "@/components/ContentDetailPage"
-import SubDocsPanel from "@/components/SubDocsPanel"
+import ContentDetailPage from "@/components/features/content/ContentDetailPage"
+import SubDocsPanel from "@/components/features/content/SubDocsPanel"
 
 export const dynamicParams = false
 

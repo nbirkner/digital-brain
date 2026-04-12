@@ -1,8 +1,8 @@
 import { notFound } from "next/navigation"
-import PageHeader from "@/components/PageHeader"
-import MarkdownRenderer from "@/components/MarkdownRenderer"
+import PageHeader from "@/components/layout/PageHeader"
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
 import { getMarkdownFileWithPending, getMarkdownFiles } from "@/lib/content"
-import PagePathStatic from "@/components/PagePathStatic"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 const STATUS_STYLES: Record<string, string> = {
   "Tickets purchased": "bg-green-500/15 text-green-700 border-green-500/30",

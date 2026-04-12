@@ -1,6 +1,6 @@
 import Link from "next/link"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 const SECTIONS = [
   { href: "/self/health", icon: "🌿", label: "Health", description: "Medical records, wellness" },

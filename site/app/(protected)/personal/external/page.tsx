@@ -1,8 +1,8 @@
 "use client"
 
 import { useState } from "react"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 import { EXTERNAL_PAGES } from "@/data/external-published"
 import type { PublishedPrivatePage } from "@/data/external-published"
 

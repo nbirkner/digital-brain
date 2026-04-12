@@ -1,6 +1,6 @@
 import Link from "next/link"
-import PagePathStatic from "@/components/PagePathStatic"
-import LearningHighlightsClient from "@/components/LearningHighlightsClient"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import LearningHighlightsClient from "@/components/features/learning/LearningHighlightsClient"
 import { fetchBooks, fetchHighlights } from "@/lib/readwise"
 
 export const revalidate = 60

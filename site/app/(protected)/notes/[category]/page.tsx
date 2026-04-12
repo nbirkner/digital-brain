@@ -2,10 +2,10 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getFileTitlesFromGitHub } from "@/lib/content"
 
-import NotesFilter from "@/components/NotesFilter"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import EmptyState from "@/components/EmptyState"
+import NotesFilter from "@/components/features/notes/NotesFilter"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import EmptyState from "@/components/ui/EmptyState"
 
 
 interface NoteItem {

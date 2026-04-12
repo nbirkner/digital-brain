@@ -1,5 +1,5 @@
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 
 // Data sourced from Notion Financial Accounts database
 // Database ID: 2a82f4d2-943e-8195-9f57-df57ef64d269

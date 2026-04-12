@@ -1,9 +1,9 @@
 import { getMarkdownFileWithPending, getMarkdownFiles } from "@/lib/content"
 import { getSubDocs } from "@/lib/docs"
-import PagePathStatic from "@/components/PagePathStatic"
-import PageHeader from "@/components/PageHeader"
-import MarkdownRenderer from "@/components/MarkdownRenderer"
-import SubDocsPanel from "@/components/SubDocsPanel"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import PageHeader from "@/components/layout/PageHeader"
+import MarkdownRenderer from "@/components/ui/MarkdownRenderer"
+import SubDocsPanel from "@/components/features/content/SubDocsPanel"
 import { notFound } from "next/navigation"
 
 export const dynamicParams = false

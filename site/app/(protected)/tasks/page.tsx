@@ -1,7 +1,7 @@
 import { getAllTasks, TODOIST_APP_URL } from "@/lib/todoist"
-import PageHeader from "@/components/PageHeader"
-import EmptyState from "@/components/EmptyState"
-import TasksClient from "@/components/TasksClient"
+import PageHeader from "@/components/layout/PageHeader"
+import EmptyState from "@/components/ui/EmptyState"
+import TasksClient from "@/components/features/tasks/TaskList"
 import { getTaskNotesIndex, buildTitleIndex } from "@/lib/task-notes-server"
 
 export const dynamic = "force-dynamic"

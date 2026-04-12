@@ -1,9 +1,9 @@
 import { Suspense } from "react"
-import PageHeader from "@/components/PageHeader"
-import PagePathStatic from "@/components/PagePathStatic"
-import DocsClient from "@/components/DocsClient"
+import PageHeader from "@/components/layout/PageHeader"
+import PagePathStatic from "@/components/layout/PagePathStatic"
+import DocsClient from "@/components/features/content/DocsClient"
 import { getAllDocsMeta } from "@/lib/docs"
-import LabelPageContent from "@/components/LabelPageContent"
+import LabelPageContent from "@/components/features/notes/LabelPageContent"
 
 export default async function WorkPrdsPage() {
   const docs = getAllDocsMeta()

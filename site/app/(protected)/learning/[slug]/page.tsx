@@ -1,11 +1,11 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import PagePathStatic from "@/components/PagePathStatic"
+import PagePathStatic from "@/components/layout/PagePathStatic"
 import { fetchBookById, fetchBookHighlights, fetchReaderSummary } from "@/lib/readwise"
 import type { ReadwiseCategory } from "@/lib/readwise"
 import { parseInlineMarkdown } from "@/lib/markdown"
 import { sanitizeHtml } from "@/lib/sanitize-html"
-import HighlightActions from "@/components/HighlightActions"
+import HighlightActions from "@/components/features/learning/HighlightActions"
 
 export const revalidate = 60
 

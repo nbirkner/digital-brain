@@ -1,7 +1,7 @@
 import { Suspense } from "react"
-import PageHeader from "@/components/PageHeader"
-import NotesClient from "@/components/NotesClient"
-import type { NoteItem } from "@/components/NotesClient"
+import PageHeader from "@/components/layout/PageHeader"
+import NotesClient from "@/components/features/notes/NotesClient"
+import type { NoteItem } from "@/components/features/notes/NotesClient"
 import { getMarkdownFilesIndex } from "@/lib/content"
 import type { ContentFile } from "@/lib/content"
 
