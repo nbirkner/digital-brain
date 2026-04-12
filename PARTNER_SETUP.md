@@ -344,10 +344,11 @@ git submodule update --init --recursive
 # From the site/ folder:
 cd site
 pnpm build:cache
+pnpm build:search   # builds the search index — needed for search to work
 pnpm dev
 ```
 
-`build:cache` generates the content index (takes ~10 seconds). `pnpm dev` starts the local server.
+`build:cache` generates the content index (takes ~10 seconds). `build:search` builds the search index. `pnpm dev` starts the local server.
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
