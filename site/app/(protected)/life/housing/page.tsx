@@ -36,7 +36,7 @@ function parseJSON<T>(raw: string | undefined, fallback: T): T {
 }
 
 export default async function HousingPage() {
-  const data = getMarkdownFile("personal/site/housing/index.md")
+  const data = getMarkdownFile("shared/housing/index.md")
   const fm = data?.frontmatter ?? {}
 
   const history = parseJSON<HistoryEntry[]>(fm.history_json, [])
@@ -172,7 +172,7 @@ const KNOWN_HOUSING_SLUGS = new Set([
 ])
 
 async function AllHousingFiles() {
-  const allFiles = (await getMarkdownFilesWithPending("personal/site/housing")).filter(
+  const allFiles = (await getMarkdownFilesWithPending("shared/housing")).filter(
     (f) => !KNOWN_HOUSING_SLUGS.has(f.slug) && !f.slug.endsWith("README") && !f.slug.endsWith("index")
   )
   if (allFiles.length === 0) return null

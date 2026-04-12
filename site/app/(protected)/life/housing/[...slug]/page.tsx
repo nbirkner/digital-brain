@@ -7,7 +7,7 @@ import PagePathStatic from "@/components/PagePathStatic"
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const files = getMarkdownFiles("personal/site/housing")
+  const files = getMarkdownFiles("shared/housing")
   return files.map(f => ({ slug: f.slug.split("/") }))
 }
 
@@ -19,7 +19,7 @@ const SKIP_FRONTMATTER_KEYS = ["title", "notion_id", "source"]
 
 export default async function HousingDetailPage({ params }: Props) {
   const slugPath = params.slug.join("/").replace(/\.md$/, "")
-  const file = await getMarkdownFileWithPending(`personal/site/housing/${slugPath}.md`)
+  const file = await getMarkdownFileWithPending(`shared/housing/${slugPath}.md`)
 
   if (!file) notFound()
 

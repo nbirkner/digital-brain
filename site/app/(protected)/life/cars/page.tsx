@@ -6,13 +6,13 @@ import { getMarkdownFile, getMarkdownFilesWithPending } from "@/lib/content"
 const CAR_SLUGS = ["corolla", "infiniti"]
 
 export default async function CarsPage() {
-  const indexMeta = getMarkdownFile("personal/site/cars/index.md")
+  const indexMeta = getMarkdownFile("shared/cars/index.md")
   const totalCost = indexMeta?.frontmatter.total_monthly_cost ?? "737.50"
   const costNote = indexMeta?.frontmatter.cost_note ?? "loan + insurance"
   const costSplit = indexMeta?.frontmatter.cost_split ?? "~60–65% Juan / 35–40% Niki"
 
   const carFiles = CAR_SLUGS.map((slug) =>
-    getMarkdownFile(`personal/site/cars/${slug}.md`)
+    getMarkdownFile(`shared/cars/${slug}.md`)
   ).filter(Boolean)
 
   const cars = carFiles.map((f) => ({
@@ -101,7 +101,7 @@ export default async function CarsPage() {
 const KNOWN_CAR_SLUGS = new Set(["corolla", "infiniti"])
 
 async function AllCarFiles() {
-  const allFiles = (await getMarkdownFilesWithPending("personal/site/cars")).filter(
+  const allFiles = (await getMarkdownFilesWithPending("shared/cars")).filter(
     (f) => !KNOWN_CAR_SLUGS.has(f.slug) && !f.slug.endsWith("README") && !f.slug.endsWith("index")
   )
   if (allFiles.length === 0) return null

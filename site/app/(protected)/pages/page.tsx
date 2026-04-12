@@ -3,12 +3,12 @@ import PageHeader from "@/components/PageHeader"
 import { getMarkdownFilesIndex } from "@/lib/content"
 
 const AREA_CONFIG: Record<string, { label: string; icon: string; routePrefix: string; dirPrefix: string }> = {
-  travel:   { label: "Travel",   icon: "✈️",  routePrefix: "/life/travel",   dirPrefix: "personal/site/travel/trips/" },
-  housing:  { label: "Housing",  icon: "🏠",  routePrefix: "/life/housing",  dirPrefix: "personal/site/housing/" },
+  travel:   { label: "Travel",   icon: "✈️",  routePrefix: "/life/travel",   dirPrefix: "shared/travel/trips/" },
+  housing:  { label: "Housing",  icon: "🏠",  routePrefix: "/life/housing",  dirPrefix: "shared/housing/" },
   health:   { label: "Health",   icon: "💚",  routePrefix: "/life/health",   dirPrefix: "personal/site/health/" },
-  finances: { label: "Finances", icon: "💸",  routePrefix: "/life/finances", dirPrefix: "personal/site/finances/" },
-  cars:     { label: "Cars",     icon: "🚗",  routePrefix: "/life/cars",     dirPrefix: "personal/site/cars/" },
-  pet:      { label: "Pet",      icon: "🐾",  routePrefix: "/life/luci",     dirPrefix: "personal/site/pet/" },
+  finances: { label: "Finances", icon: "💸",  routePrefix: "/life/finances", dirPrefix: "shared/finances/" },
+  cars:     { label: "Cars",     icon: "🚗",  routePrefix: "/life/cars",     dirPrefix: "shared/cars/" },
+  pet:      { label: "Pet",      icon: "🐾",  routePrefix: "/life/luci",     dirPrefix: "shared/luci/" },
 }
 
 interface PageEntry {
@@ -18,7 +18,7 @@ interface PageEntry {
 }
 
 export default function PagesPage() {
-  const allFiles = getMarkdownFilesIndex("personal/site")
+  const allFiles = getMarkdownFilesIndex("shared")
 
   const grouped: Record<string, PageEntry[]> = {}
 

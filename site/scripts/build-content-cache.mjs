@@ -39,9 +39,8 @@ const SCAN_ROOTS = [
   "work/docs",
   "work/notes",
   "external",
-  // Optional: mount a shared repo as a git submodule at shared/
-  // Uncomment if you have a shared content repo set up:
-  // "shared",
+  // Mount a shared submodule here — or put files directly in shared/ without a submodule
+  "shared",
 ]
 
 // Paths to exclude from the cache (prefix match against repoRelPath)

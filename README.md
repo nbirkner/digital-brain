@@ -112,8 +112,8 @@ The demo content uses "Alex Chen" and "Acme Corp" as placeholder names. Replace 
 | Daily notes | `personal/notes/YYYY-MM-DD.md` |
 | Goals | `personal/docs/growth/` |
 | Certifications | `personal/docs/library/certifications/` |
-| Travel | `personal/site/travel/trips/` |
-| Finances | `personal/site/finances/finances.md` |
+| Travel | `shared/travel/trips/` |
+| Finances | `shared/finances/finances.md` |
 | Health tracking | `personal/docs/health/` |
 | Routine | `personal/docs/routine/` |
 | Hobbies | `personal/docs/hobbies/` |
@@ -173,15 +173,24 @@ Both of you will see the tasks in your Todoist apps. Either person can complete 
 
 ## Shared content with a partner (optional)
 
-If you want to share content with a partner, housemate, or collaborator — housing, finances, travel, anything joint — you can set up a private shared repo and mount it as a git submodule.
+Life Admin pages (Housing, Finances, Travel, Cars, Pet/Luci) read from `shared/` by default. You can put files directly in `shared/`, or mount a private git submodule there. Either way, the pages just work after you fork.
 
-### Setup
+### Life Admin paths
+
+| Section | Path |
+|---------|------|
+| Housing | `shared/housing/` |
+| Finances | `shared/finances/finances.md` |
+| Travel | `shared/travel/trips/` |
+| Cars | `shared/cars/` |
+| Pet / Luci | `shared/luci/` |
+| Relationship | `shared/relationship/` |
+
+### Setup (submodule)
 
 1. Create a private repo (e.g., `yourname/shared-life`) with the content you want to share
 2. Add it as a submodule: `git submodule add https://github.com/yourname/shared-life.git shared`
-3. In `site/scripts/build-content-cache.mjs`, uncomment `"shared"` in the SCAN_ROOTS array
-4. In `site/scripts/build-search-index.mjs`, uncomment the shared sections you want indexed
-5. Invite your partner to the shared repo as a collaborator (GitHub → repo Settings → Collaborators)
+3. Invite your partner to the shared repo as a collaborator (GitHub → repo Settings → Collaborators)
 
 ### How it works
 

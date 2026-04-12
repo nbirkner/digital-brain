@@ -31,13 +31,13 @@ const CAR_PDFS: Record<string, { href: string; label: string }[]> = {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const files = getMarkdownFiles("personal/site/cars")
+  const files = getMarkdownFiles("shared/cars")
   return files.map(f => ({ slug: f.slug.split("/") }))
 }
 
 export default async function CarDetailPage({ params }: Props) {
   const slugPath = params.slug.join("/").replace(/\.md$/, "")
-  const file = await getMarkdownFileWithPending(`personal/site/cars/${slugPath}.md`)
+  const file = await getMarkdownFileWithPending(`shared/cars/${slugPath}.md`)
 
   if (!file) notFound()
 

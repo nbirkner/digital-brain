@@ -8,7 +8,7 @@ import { notFound } from "next/navigation"
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const files = getMarkdownFiles("personal/site/finances")
+  const files = getMarkdownFiles("shared/finances")
   return files.map(f => ({ slug: f.slug.split("/") }))
 }
 
@@ -18,7 +18,7 @@ interface Props {
 
 export default async function FinancesDetailPage({ params }: Props) {
   const slugPath = params.slug.join("/").replace(/\.md$/, "")
-  const file = await getMarkdownFileWithPending("personal/site/finances/" + slugPath + ".md")
+  const file = await getMarkdownFileWithPending("shared/finances/" + slugPath + ".md")
   if (!file) notFound()
   return (
     <div className="max-w-2xl mx-auto">

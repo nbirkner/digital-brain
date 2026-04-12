@@ -17,13 +17,13 @@ const STATUS_STYLES: Record<string, string> = {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const files = getMarkdownFiles("personal/site/travel/trips")
+  const files = getMarkdownFiles("shared/travel/trips")
   return files.map(f => ({ slug: f.slug }))
 }
 
 export default async function TripPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const file = await getMarkdownFileWithPending(`personal/site/travel/trips/${slug}.md`)
+  const file = await getMarkdownFileWithPending(`shared/travel/trips/${slug}.md`)
   if (!file) notFound()
 
   const { frontmatter, content, displayTitle } = file

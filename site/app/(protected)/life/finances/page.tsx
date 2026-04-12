@@ -4,7 +4,7 @@ import PagePathStatic from "@/components/PagePathStatic"
 import { getMarkdownFile, getMarkdownFilesWithPending } from "@/lib/content"
 import LabelPageContent from "@/components/LabelPageContent"
 
-// Data sourced from personal/site/finances/accounts.md and overview.md
+// Data sourced from shared/finances/accounts.md and overview.md
 // Edit those files to update accounts, tools, team, and tax tips.
 
 type AccountStatus = "Open" | "Closed" | "Need to close" | "In progress" | "Other" | "Closing in progress"
@@ -120,8 +120,8 @@ function parseJsonField<T>(value: string | undefined, fallback: T): T {
 
 export default async function FinancesPage() {
   // Load from markdown frontmatter
-  const accountsFile = getMarkdownFile("personal/site/finances/accounts.md")
-  const overviewFile = getMarkdownFile("personal/site/finances/overview.md")
+  const accountsFile = getMarkdownFile("shared/finances/accounts.md")
+  const overviewFile = getMarkdownFile("shared/finances/overview.md")
 
   const accounts = parseJsonField<Account[]>(accountsFile?.frontmatter.accounts_json, [])
   const closedAccounts = parseJsonField<Account[]>(accountsFile?.frontmatter.closed_accounts_json, [])
@@ -314,7 +314,7 @@ export default async function FinancesPage() {
 }
 
 async function FinancesNotes() {
-  const allFiles = (await getMarkdownFilesWithPending("personal/site/finances")).filter(
+  const allFiles = (await getMarkdownFilesWithPending("shared/finances")).filter(
     (f) =>
       !f.slug.endsWith("README") &&
       !f.slug.endsWith("index") &&

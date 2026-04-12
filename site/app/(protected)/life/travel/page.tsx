@@ -5,7 +5,7 @@ import { getMarkdownFilesWithPending } from "@/lib/content"
 import LabelPageContent from "@/components/LabelPageContent"
 
 export default async function TravelPage() {
-  const tripFiles = await getMarkdownFilesWithPending("personal/site/travel/trips")
+  const tripFiles = await getMarkdownFilesWithPending("shared/travel/trips")
 
   const trips = tripFiles.map((f) => ({
     slug: f.slug,

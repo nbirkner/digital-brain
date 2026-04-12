@@ -8,7 +8,7 @@ import { notFound } from "next/navigation"
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const files = getMarkdownFiles("personal/site/pet")
+  const files = getMarkdownFiles("shared/luci")
   return files.map(f => ({ slug: f.slug }))
 }
 
@@ -17,7 +17,7 @@ interface Props {
 }
 
 export default async function LuciDetailPage({ params }: Props) {
-  const file = await getMarkdownFileWithPending("personal/site/pet/" + params.slug + ".md")
+  const file = await getMarkdownFileWithPending("shared/luci/" + params.slug + ".md")
   if (!file) notFound()
   return (
     <div className="max-w-2xl mx-auto">

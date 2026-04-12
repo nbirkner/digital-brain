@@ -40,9 +40,12 @@ const SECTIONS = [
   { path: "personal/docs/library/certifications", urlPrefix: "/self/certifications", icon: "🎓", section: "self" },
 
   // ── Life section ──
-  { path: "personal/site/finances", urlPrefix: "/life/finances", icon: "💰", section: "life" },
-  { path: "personal/site/travel/trips", urlPrefix: "/life/travel", icon: "✈️", section: "life" },
-  { path: "personal/site/housing", urlPrefix: "/life/housing", icon: "🏠", section: "life" },
+  { path: "shared/finances", urlPrefix: "/life/finances", icon: "💰", section: "life" },
+  { path: "shared/travel/trips", urlPrefix: "/life/travel", icon: "✈️", section: "life" },
+  { path: "shared/housing", urlPrefix: "/life/housing", icon: "🔑", section: "life" },
+  { path: "shared/cars", urlPrefix: "/life/cars", icon: "🚗", section: "life" },
+  { path: "shared/luci", urlPrefix: "/life/luci", icon: "🐱", section: "life" },
+  { path: "shared/relationship", urlPrefix: "/self/relationship", icon: "❤️", section: "self" },
 
   // ── Work section (served via /docs/[...slug] catch-all) ──
   { path: "work/docs/prds", urlPrefix: "/docs/work/docs/prds", icon: "📋", section: "work" },
@@ -64,10 +67,6 @@ const SECTIONS = [
   // ── External published content ──
   { path: "external", urlPrefix: "/docs", icon: "📄", section: "docs" },
 
-  // Optional shared repo sections — uncomment if you have a shared/ submodule:
-  // { path: "shared/housing", urlPrefix: "/life/housing", icon: "🔑", section: "life" },
-  // { path: "shared/finances", urlPrefix: "/life/finances", icon: "💰", section: "life" },
-  // { path: "shared/travel/trips", urlPrefix: "/life/travel", icon: "✈️", section: "life" },
 ]
 
 function slugToTitle(slug) {

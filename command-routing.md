@@ -54,18 +54,18 @@ Booking confirmations, dates, or itinerary changes for a known trip.
 
 | Keywords | File |
 |----------|------|
-| My trip | `personal/site/travel/trips/my-trip.md` |
+| My trip | `shared/travel/trips/my-trip.md` |
 
 ### `file_update` — edit content in a known personal file
 Change a value, status, or add content to a named page.
 
 | Keywords | File |
 |----------|------|
-| housing, rent, address, apartment | `personal/site/housing/housing-and-rent.md` |
+| housing, rent, address, apartment | `shared/housing/housing-and-rent.md` |
 | routine, morning ritual | `personal/docs/routine/morning-routine.md` |
 | supplement stack, supplements | `personal/site/health/supplement-stack.md` |
-| travel page, travel status | `personal/site/travel/travel.md` |
-| finances, budget | `personal/site/finances/finances.md` |
+| travel page, travel status | `shared/travel/travel.md` |
+| finances, budget | `shared/finances/finances.md` |
 | goals, quarterly goals | `personal/docs/growth/2026-Q1-goals.md` |
 
 ### `quick_note` — append a timestamped note to a categorized file
