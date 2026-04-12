@@ -171,6 +171,42 @@ If you want to share tasks with a partner, housemate, or collaborator:
 
 Both of you will see the tasks in your Todoist apps. Either person can complete them.
 
+## Shared content with a partner (optional)
+
+If you want to share content with a partner, housemate, or collaborator — housing, finances, travel, anything joint — you can set up a private shared repo and mount it as a git submodule.
+
+### Setup
+
+1. Create a private repo (e.g., `yourname/shared-life`) with the content you want to share
+2. Add it as a submodule: `git submodule add https://github.com/yourname/shared-life.git shared`
+3. In `site/scripts/build-content-cache.mjs`, uncomment `"shared"` in the SCAN_ROOTS array
+4. In `site/scripts/build-search-index.mjs`, uncomment the shared sections you want indexed
+5. Invite your partner to the shared repo as a collaborator (GitHub → repo Settings → Collaborators)
+
+### How it works
+
+Both people edit files in `shared/` locally. To push shared changes:
+
+```bash
+cd shared && git add . && git commit -m "update: housing info" && git push
+cd .. && git add shared && git commit -m "chore: update shared submodule" && git push
+```
+
+Or use `git push --recurse-submodules=on-demand` to push both in one command.
+
+To pull the other person's changes: `git submodule update --remote shared`
+
+### Suggested shared content structure
+
+```
+shared/
+  housing/          — apartment/house details, rent, landlord
+  finances/         — joint budget, shared expenses, savings goals
+  travel/trips/     — trips you take together
+  relationship/     — couples therapy notes, joint goals
+  [whatever else]   — fully customizable
+```
+
 ## Staying in sync with updates
 
 This repo gets updated as new features ship. Pull improvements into your fork:

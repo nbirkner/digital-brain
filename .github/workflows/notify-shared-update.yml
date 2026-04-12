@@ -1,0 +1,15 @@
+name: Notify on shared submodule push
+
+on:
+  push:
+    paths:
+      - 'shared/**'
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared content updated
+        run: |
+          echo "Shared content was updated. Make sure the other person's repo pulls the latest submodule."
+          echo "They can run: git submodule update --remote shared"

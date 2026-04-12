@@ -63,6 +63,11 @@ const SECTIONS = [
 
   // ── External published content ──
   { path: "external", urlPrefix: "/docs", icon: "📄", section: "docs" },
+
+  // Optional shared repo sections — uncomment if you have a shared/ submodule:
+  // { path: "shared/housing", urlPrefix: "/life/housing", icon: "🔑", section: "life" },
+  // { path: "shared/finances", urlPrefix: "/life/finances", icon: "💰", section: "life" },
+  // { path: "shared/travel/trips", urlPrefix: "/life/travel", icon: "✈️", section: "life" },
 ]
 
 function slugToTitle(slug) {
